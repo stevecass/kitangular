@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Angular App</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="js/angular.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/filters.js"></script>
+  <script type="text/javascript" src="js/controllers.js"></script>
+</head>
+<body ng-app="steven">
+
+<div ng-controller="MainController">
+
+  <h3>Add a kitten</h3>
+  <form>
+    Name: <input ng-model="newCat.name">
+    Breed: <select ng-model="newCat.breed_id">
+             <option value="0">Please select a breed</option>
+             <option ng-repeat="breed in breeds" value="{{breed.id}}">{{breed.name}}</option>
+          </select>
+    Born: <input type="date" ng-model="newCat.born_on">
+    Image: <input ng-model="newCat.image_url">
+    <button ng-click="addNewCat()">Add cat</button>
+ </form>
+
+ <p>{{newCat}}</p>
+
+  <h3>My kittens</h3>
+  <div class="filter-form">
+    Filter (on breed / name): <input ng-change="showMatches()" ng-model="matchStr">
+  </div>
+  
+  <div id="cat-list">
+    <div class="cat" ng-repeat="cat in cats track by $index">
+      <div class="cat-pic">
+        <img ng-src="{{cat.image_url}}">
+      </div>
+      <div class="cat-details">
+        <div>Name:{{cat.id}} {{cat.name}} </div>
+        <div>Breed: {{cat.breed_name}} </div>
+        <div>Born: {{cat.born_on}} </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+body {
+  font-family: sans-serif;
+}
+
+div#cat-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div.cat {
+  display: flex;
+}
+
+img {
+  width: 300px;
+}
+
+div.cat-details {
+  width: 200px;
+}
+
+div.filter-form {
+  margin-bottom:10px;
+}
+
+div.cat-pic {
+  margin: 0 10px;
+
+}
+
+form {
+  margin: 10px 0;
+}
