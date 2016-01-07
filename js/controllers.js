@@ -14,7 +14,7 @@ angular.module('steven').controller('MainController', function($http, $filter, $
   $scope.showMatches = function() {
     var filterFn = $filter('breedFilter');
     var searchFields = ['name', 'breed_name']
-    $scope.cats =  filterFn($scope.allCats, searchFields, $scope.matchStr);
+    $scope.cats =  filterFn($scope.allCats, searchFields, $scope.filterMatchStr);
   }
 
   $scope.addNewCat = function() {
