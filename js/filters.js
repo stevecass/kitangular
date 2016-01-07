@@ -2,9 +2,10 @@ angular.module('steven').filter('breedFilter', function(){
 
   return function(cats, fields, targetStr) {
     
-    //If there's nothing to match passed in - return everything
+    // If there's nothing to match passed in
+    // return a copy of the full cat array
     if (!targetStr) {
-      return cats;
+      return cats.slice(0);
     }
 
     var filtered = [];
