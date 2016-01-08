@@ -14,9 +14,9 @@ angular.module('steven').controller('MainController',
 
   $scope.showMatches = function() {
     var filterFn = $filter('breedFilter');
-    var searchFields = ['name', 'breed_name']
-    $scope.cats =  filterFn($scope.allCats, searchFields, $scope.filterMatchStr);
-  }
+    var searchFields = ['name', 'breed_name'];
+    $scope.cats = filterFn($scope.allCats, searchFields, $scope.filterMatchStr);
+  };
 
   $scope.addNewCat = function() {
     $http.post('https://stark-harbor-5038.herokuapp.com/cats', $scope.newCat)
