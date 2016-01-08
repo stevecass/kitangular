@@ -4,9 +4,11 @@ angular.module('steven').factory('Breed', function($resource) {
     // Add the PATCH method for update. ng-resource by default
     // supplies only a save() which maps to a POST. We use that for 
     // create and use this update() for updates.
+    create: {
+      method: 'POST'
+    },
     update: {
-      method: 'PATCH', // this method issues a PATCH request
-      url: '/cows/:id'
+      method: 'PATCH' // this method issues a PATCH request
     }
   });
 
@@ -21,6 +23,14 @@ angular.module('steven').factory('Breed', function($resource) {
   Breed.prototype.inCaps = function() {
     return this.name ? this.name.toUpperCase() : "";
   };
+
+  Breed.prototype.save = function(fn) {
+    if (this.id) {
+      return this.$update(fn);
+    } else {
+      return this.$create(fn);
+    }
+  }
 
   Breed.all
 

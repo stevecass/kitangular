@@ -25,7 +25,8 @@ angular.module('steven').controller('MainController',
 
   $scope.addNewBreed = function() {
     breed = new Breed($scope.newBreed);
-    breed.$save(function(savedBreed, responseHeaders){
+    breed.save(function(savedBreed){
+      console.log('savedBreed', savedBreed);
       $scope.breeds.push(savedBreed);
       $scope.newBreed = null;
     });
