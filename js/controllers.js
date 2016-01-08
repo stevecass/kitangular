@@ -19,10 +19,9 @@ angular.module('steven').controller('MainController',
   };
 
   $scope.addNewCat = function() {
-    $http.post('https://stark-harbor-5038.herokuapp.com/cats', $scope.newCat)
-    .then(function(response){
-      var savedCat = response.data;
+    Cat.create($scope.newCat).then(function(savedCat){
       $scope.allCats.unshift(savedCat);
+      $scope.showMatches();
     });
   };
 

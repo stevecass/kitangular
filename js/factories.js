@@ -7,6 +7,7 @@ angular.module('steven').factory('Cat', function($http) {
     this.bornOn = new Date(json.born_on);
     this.createdAt = new Date(json.created_at);
     this.updatedAt = new Date(json.updted_at);
+    console.log(this);
   };
 
   Cat.prototype.getAge = function() {
@@ -30,6 +31,12 @@ angular.module('steven').factory('Cat', function($http) {
       });
   };
 
+  Cat.create = function(catProps) {
+    return $http.post('https://stark-harbor-5038.herokuapp.com/cats', catProps)
+    .then(function(response){
+      return new Cat(response.data);
+    });
+  };
 
   return Cat;
 });
