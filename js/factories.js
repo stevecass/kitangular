@@ -7,7 +7,6 @@ angular.module('steven').factory('Cat', function($http) {
     this.bornOn = new Date(json.born_on);
     this.createdAt = new Date(json.created_at);
     this.updatedAt = new Date(json.updted_at);
-    console.log(this);
   };
 
   Cat.prototype.getAge = function() {
