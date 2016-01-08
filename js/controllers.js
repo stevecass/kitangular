@@ -1,4 +1,5 @@
-angular.module('steven').controller('MainController', function($http, $filter, $scope){
+angular.module('steven').controller('MainController',
+  ['$http', '$filter', '$scope', function($http, $filter, $scope){
 
   $http.get('https://stark-harbor-5038.herokuapp.com/breeds')
     .then(function(response){
@@ -25,4 +26,4 @@ angular.module('steven').controller('MainController', function($http, $filter, $
     });
   };
 
-});
+}]);
