@@ -10,19 +10,19 @@ angular.module('steven').factory('Breed', function($resource) {
     }
   });
 
-  Breed.getBreeds = function() {
-    return Breed.query(function(response){
-        var result = [];
-        angular.forEach(response.data, function(json){
-          result.push(new Breed(json));
-        });
-        return result;
-      });
+  Breed.all = function() {
+    return Breed.query();
   };
 
   Breed.find = function(id) {
     return Breed.get({id: id});
   };
+
+  Breed.prototype.inCaps = function() {
+    return this.name ? this.name.toUpperCase() : "";
+  };
+
+  Breed.all
 
   return Breed;
 });

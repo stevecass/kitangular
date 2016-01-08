@@ -1,7 +1,7 @@
 angular.module('steven').controller('MainController',
   ['Breed', 'Cat', '$filter', '$scope', function(Breed, Cat, $filter, $scope){
 
- $scope.breeds = Breed.getBreeds();
+ $scope.breeds = Breed.all();
  console.log('Breed 1', Breed.find(1));
 
   Cat.getCats()

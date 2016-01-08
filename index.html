@@ -23,7 +23,7 @@
     Name: <input ng-model="newCat.name">
     Breed: <select ng-model="newCat.breed_id">
              <option value="0">Please select a breed</option>
-             <option ng-repeat="breed in breeds" value="{{breed.id}}">{{breed.name}}</option>
+             <option ng-repeat="breed in breeds" value="{{breed.id}}">{{breed.inCaps()}}</option>
           </select>
     Born: <input type="date" ng-model="newCat.born_on">
     Image: <input ng-model="newCat.image_url">
