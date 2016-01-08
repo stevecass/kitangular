@@ -1,14 +1,14 @@
 angular.module('steven').controller('MainController',
-  ['$http', '$filter', '$scope', function($http, $filter, $scope){
+  ['Cat', '$http', '$filter', '$scope', function(Cat, $http, $filter, $scope){
 
   $http.get('https://stark-harbor-5038.herokuapp.com/breeds')
     .then(function(response){
       $scope.breeds = response.data;
     });
 
-  $http.get('https://stark-harbor-5038.herokuapp.com/cats')
-    .then(function(response){
-      $scope.allCats = response.data;
+  Cat.getCats()
+    .then(function(cats){
+      $scope.allCats = cats;
       $scope.showMatches();
     });
 
