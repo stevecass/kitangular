@@ -22,7 +22,7 @@ angular.module('steven').controller('MainController',
     $http.post('https://stark-harbor-5038.herokuapp.com/cats', $scope.newCat)
     .then(function(response){
       var savedCat = response.data;
-      $scope.cats.unshift(savedCat);
+      $scope.allCats.unshift(savedCat);
     });
   };
 
