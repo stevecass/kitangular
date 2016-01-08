@@ -1,9 +1,9 @@
 angular.module('steven').controller('MainController',
-  ['Cat', '$http', '$filter', '$scope', function(Cat, $http, $filter, $scope){
+  ['Breed', 'Cat', '$filter', '$scope', function(Breed, Cat, $filter, $scope){
 
-  $http.get('https://stark-harbor-5038.herokuapp.com/breeds')
-    .then(function(response){
-      $scope.breeds = response.data;
+  Breed.getBreeds()
+    .then(function(breeds){
+      $scope.breeds = breeds;
     });
 
   Cat.getCats()
