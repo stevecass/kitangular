@@ -24,6 +24,7 @@ angular.module('steven').factory('Breed', function($resource) {
     return this.name ? this.name.toUpperCase() : "";
   };
 
+  //Convenience method to emulate an AR save
   Breed.prototype.save = function(fn) {
     if (this.id) {
       return this.$update(fn);
