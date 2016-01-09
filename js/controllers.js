@@ -3,8 +3,9 @@ angular.module('steven').controller('MainController',
 
  $scope.breeds = Breed.all();
  console.log('Breed 1', Breed.find(1));
+ console.log('Cat 1', Cat.find(1));
 
-  Cat.getCats()
+  Cat.all() // we've made Cat.all return a promise using ngResource.$promise()
     .then(function(cats){
       $scope.allCats = cats;
       $scope.showMatches();
@@ -17,7 +18,7 @@ angular.module('steven').controller('MainController',
   };
 
   $scope.addNewCat = function() {
-    Cat.create($scope.newCat).then(function(savedCat){
+    new Cat($scope.newCat).save().then(function(savedCat){
       $scope.allCats.unshift(savedCat);
       $scope.showMatches();
     });

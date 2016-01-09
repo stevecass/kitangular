@@ -45,7 +45,7 @@
       <div class="cat-details">
         <div>Name:{{cat.name}} </div>
         <div>Breed: {{cat.breed_name}} </div>
-        <div>Born on: {{cat.bornOn | date : 'dd-MMM-yyyy'}} </div>
+        <div>Born on: {{cat.getBornOn() | date : 'dd-MMM-yyyy'}} </div>
         <div>Age: {{cat.getAge()}} </div>
       </div>
     </div>
