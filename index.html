@@ -4,20 +4,26 @@
   <title>My Angular App</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <script type="text/javascript" src="js/angular.js"></script>
+  <script type="text/javascript" src="js/angular-resource.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/factories/breed.js"></script>
+  <script type="text/javascript" src="js/factories/cat.js"></script>
   <script type="text/javascript" src="js/filters.js"></script>
   <script type="text/javascript" src="js/controllers.js"></script>
 </head>
 <body ng-app="steven">
 
 <div ng-controller="MainController">
+  <h3>Add a breed</h3>
+  New breed name: <input ng-model="newBreed.name">
+  <button ng-click="addNewBreed()">Add breed</button>
 
   <h3>Add a kitten</h3>
   <form>
     Name: <input ng-model="newCat.name">
     Breed: <select ng-model="newCat.breed_id">
              <option value="0">Please select a breed</option>
-             <option ng-repeat="breed in breeds" value="{{breed.id}}">{{breed.name}}</option>
+             <option ng-repeat="breed in breeds" value="{{breed.id}}">{{breed.inCaps()}}</option>
           </select>
     Born: <input type="date" ng-model="newCat.born_on">
     Image: <input ng-model="newCat.image_url">
@@ -30,16 +36,17 @@
   <div class="filter-form">
     Filter (on breed / name): <input ng-change="showMatches()" ng-model="filterMatchStr">
   </div>
-  
+
   <div id="cat-list">
     <div class="cat" ng-repeat="cat in cats track by $index">
       <div class="cat-pic">
         <img ng-src="{{cat.image_url}}">
       </div>
       <div class="cat-details">
-        <div>Name:{{cat.id}} {{cat.name}} </div>
+        <div>Name:{{cat.name}} </div>
         <div>Breed: {{cat.breed_name}} </div>
-        <div>Born: {{cat.born_on}} </div>
+        <div>Born on: {{cat.getBornOn() | date : 'dd-MMM-yyyy'}} </div>
+        <div>Age: {{cat.getAge()}} </div>
       </div>
     </div>
   </div>

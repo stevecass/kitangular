@@ -1,2 +1,2 @@
-angular.module('steven', []);
+angular.module('steven', ['ngResource']);
 
